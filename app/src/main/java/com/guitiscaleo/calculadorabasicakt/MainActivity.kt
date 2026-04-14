@@ -25,9 +25,7 @@ class MainActivity : AppCompatActivity() {
                 res.text = "0"
                 novoNumero = false
             } else {
-                if (res.text.toString() != "" && res.text.toString().toDouble() < 1000000000) {
-                    res.text = res.text.toString() + "0"
-                }
+                res.text = res.text.toString() + "0"
             }
         }
 
@@ -36,9 +34,7 @@ class MainActivity : AppCompatActivity() {
                 res.text = "1"
                 novoNumero = false
             } else {
-                if (res.text.toString() == "" || res.text.toString().toDouble() < 1000000000) {
-                    res.text = res.text.toString() + "1"
-                }
+                res.text = res.text.toString() + "1"
             }
         }
 
@@ -47,9 +43,7 @@ class MainActivity : AppCompatActivity() {
                 res.text = "2"
                 novoNumero = false
             } else {
-                if (res.text.toString() == "" || res.text.toString().toDouble() < 1000000000) {
-                    res.text = res.text.toString() + "2"
-                }
+                res.text = res.text.toString() + "2"
             }
         }
 
@@ -58,9 +52,7 @@ class MainActivity : AppCompatActivity() {
                 res.text = "3"
                 novoNumero = false
             } else {
-                if (res.text.toString() == "" || res.text.toString().toDouble() < 1000000000) {
-                    res.text = res.text.toString() + "3"
-                }
+                res.text = res.text.toString() + "3"
             }
         }
 
@@ -69,9 +61,7 @@ class MainActivity : AppCompatActivity() {
                 res.text = "4"
                 novoNumero = false
             } else {
-                if (res.text.toString() == "" || res.text.toString().toDouble() < 1000000000) {
-                    res.text = res.text.toString() + "4"
-                }
+                res.text = res.text.toString() + "4"
             }
         }
 
@@ -80,9 +70,7 @@ class MainActivity : AppCompatActivity() {
                 res.text = "5"
                 novoNumero = false
             } else {
-                if (res.text.toString() == "" || res.text.toString().toDouble() < 1000000000) {
-                    res.text = res.text.toString() + "5"
-                }
+                res.text = res.text.toString() + "5"
             }
         }
 
@@ -91,9 +79,7 @@ class MainActivity : AppCompatActivity() {
                 res.text = "6"
                 novoNumero = false
             } else {
-                if (res.text.toString() == "" || res.text.toString().toDouble() < 1000000000) {
-                    res.text = res.text.toString() + "6"
-                }
+                res.text = res.text.toString() + "6"
             }
         }
 
@@ -102,9 +88,7 @@ class MainActivity : AppCompatActivity() {
                 res.text = "7"
                 novoNumero = false
             } else {
-                if (res.text.toString() == "" || res.text.toString().toDouble() < 1000000000) {
-                    res.text = res.text.toString() + "7"
-                }
+                res.text = res.text.toString() + "7"
             }
         }
 
@@ -113,9 +97,7 @@ class MainActivity : AppCompatActivity() {
                 res.text = "8"
                 novoNumero = false
             } else {
-                if (res.text.toString() == "" || res.text.toString().toDouble() < 1000000000) {
-                    res.text = res.text.toString() + "8"
-                }
+                res.text = res.text.toString() + "8"
             }
         }
 
@@ -124,66 +106,70 @@ class MainActivity : AppCompatActivity() {
                 res.text = "9"
                 novoNumero = false
             } else {
-                if (res.text.toString() == "" || res.text.toString().toDouble() < 1000000000) {
-                    res.text = res.text.toString() + "9"
-                }
+                res.text = res.text.toString() + "9"
             }
         }
 
         // OPERAÇÕES
 
         findViewById<Button>(R.id.btnadd).setOnClickListener {
-            if (res.text.toString() == "") return@setOnClickListener
-            num1 = res.text.toString().toDouble()
-            operacao = "+"
-            res.text = ""
+            if (res.text.toString() != "") {
+                num1 = res.text.toString().toDouble()
+                operacao = "+"
+                res.text = ""
+            }
         }
 
         findViewById<Button>(R.id.btnmenos).setOnClickListener {
-            if (res.text.toString() == "") return@setOnClickListener
-            num1 = res.text.toString().toDouble()
-            operacao = "-"
-            res.text = ""
+            if (res.text.toString() != "") {
+                num1 = res.text.toString().toDouble()
+                operacao = "-"
+                res.text = ""
+            }
         }
 
         findViewById<Button>(R.id.btnmult).setOnClickListener {
-            if (res.text.toString() == "") return@setOnClickListener
-            num1 = res.text.toString().toDouble()
-            operacao = "*"
-            res.text = ""
+            if (res.text.toString() != "") {
+                num1 = res.text.toString().toDouble()
+                operacao = "*"
+                res.text = ""
+            }
         }
 
         findViewById<Button>(R.id.btndiv).setOnClickListener {
-            if (res.text.toString() == "") return@setOnClickListener
-            num1 = res.text.toString().toDouble()
-            operacao = "/"
-            res.text = ""
+            if (res.text.toString() != "") {
+                num1 = res.text.toString().toDouble()
+                operacao = "/"
+                res.text = ""
+            }
         }
 
         // IGUAL
 
         findViewById<Button>(R.id.btnigual).setOnClickListener {
-            if (res.text.toString() == "") return@setOnClickListener
+            if (res.text.toString() != "") {
 
-            num2 = res.text.toString().toDouble()
-            var resultado = 0.0
+                num2 = res.text.toString().toDouble()
+                var resultado = 0.0
 
-            when (operacao) {
-                "+" -> resultado = num1 + num2
-                "-" -> resultado = num1 - num2
-                "*" -> resultado = num1 * num2
-                "/" -> {
-                    if (num2 == 0.0) {
-                        res.text = "Erro"
-                        return@setOnClickListener
-                    } else {
-                        resultado = num1 / num2
+                when (operacao) {
+                    "+" -> resultado = num1 + num2
+                    "-" -> resultado = num1 - num2
+                    "*" -> resultado = num1 * num2
+                    "/" -> {
+                        if (num2 == 0.0) {
+                            res.text = "Erro"
+                        } else {
+                            resultado = num1 / num2
+                        }
                     }
                 }
-            }
 
-            res.text = resultado.toString()
-            novoNumero = true
+                if (!(operacao == "/" && num2 == 0.0)) {
+                    res.text = resultado.toString()
+                    novoNumero = true
+                }
+            }
         }
 
         // LIMPAR
