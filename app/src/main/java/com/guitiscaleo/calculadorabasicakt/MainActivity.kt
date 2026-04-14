@@ -166,20 +166,33 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 if (!(operacao == "/" && num2 == 0.0)) {
-                    res.text = resultado.toString()
+
+                    // se resultado redondo tira o .0 do fim
+                    if (resultado % 1 == 0.0) {
+                        res.text = resultado.toInt().toString()
+                    } else {
+                        res.text = resultado.toString()
+                    }
+
                     novoNumero = true
                 }
             }
         }
 
-        // LIMPAR
+        // LIMPAR (com while)
 
         findViewById<Button>(R.id.btnclear).setOnClickListener {
-            res.text = ""
-            num1 = 0.0
-            num2 = 0.0
-            operacao = ""
-            novoNumero = false
+
+            var i = 0
+            while (i < 1) {
+                res.text = ""
+                num1 = 0.0
+                num2 = 0.0
+                operacao = ""
+                novoNumero = false
+                i++
+            }
+
         }
     }
 }
