@@ -121,7 +121,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btnmenos).setOnClickListener {
-            if (res.text.toString() != "") {
+            if (res.text.toString() == "" && operacao == "") {
+                // display vazio e sem operação anterior: começa número negativo
+                res.text = "-"
+            } else if (res.text.toString() != "" && res.text.toString() != "-") {
+                // comportamento normal de operador
                 num1 = res.text.toString().toDouble()
                 operacao = "-"
                 res.text = ""
@@ -171,7 +175,7 @@ class MainActivity : AppCompatActivity() {
                     if (resultado % 1 == 0.0) {
                         res.text = resultado.toInt().toString()
                     } else {
-                        res.text = resultado.toString()
+                        res.text = String.format("%.2f", resultado)
                     }
 
                     novoNumero = true
